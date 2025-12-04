@@ -1,0 +1,54 @@
+You are given an object where each key contains an array of translations in multiple languages.
+Your task is to **extract only the Polish translation** (the last item in each array) and return a **clean JSON object**, preserving the same structure, but with **Polish strings only**.
+If a Polish translation is incorrect or unnatural, **fix it**.
+If a Polish translation is missing, **create a natural, correct Polish translation**.
+
+Input:
+
+```json
+{
+  "ACUserManager": {
+    "Enter email address": [
+      "Enter e-mail address",
+      "Vepište e-mailovou adresu",
+      "Vložiť emailovú adresu",
+      "Wpisz adres email"
+    ],
+    "Invite new member": [
+      "Invite new member",
+      "Pozvat nového uživatele",
+      "Pozvať nového člena",
+      "Zaproś nowego użytkownika"
+    ],
+    "We'll email an invite to {{email}}": [
+      "We'll email an invite to {{email}}",
+      "Zašleme pozvánku emailem na {{email}}",
+      "Pozvánku poslať e-mailom na adresu {{email}}",
+      "Zaproszenie wyślemy mailem do {{email}}"
+    ]
+  },
+  "AccessRules": {
+    "Add column rule": [
+      "Add column rule",
+      "Přidat pravidlo pro sloupec",
+      "Pridať pravidlo stĺpca",
+      "Dodaj regułę kolumny"
+    ]
+  }
+}
+```
+
+**Output format:**
+
+```json
+{
+  "ACUserManager": {
+    "Enter email address": "Wpisz adres e-mail",
+    "Invite new member": "Zaproś nowego użytkownika",
+    "We'll email an invite to {{email}}": "Zaproszenie wyślemy na adres {{email}}"
+  },
+  "AccessRules": {
+    "Add column rule": "Dodaj regułę kolumny"
+  }
+}
+```
